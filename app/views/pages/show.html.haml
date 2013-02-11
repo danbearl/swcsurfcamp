@@ -1,0 +1,8 @@
+%nav.actions
+  = link_to "edit", edit_slug_path(page.slug)
+  |
+  = link_to "delete", slug_path(page.slug), method: :destroy
+
+%article
+  :markdown
+    #{page.body}
