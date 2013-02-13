@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208021802) do
+ActiveRecord::Schema.define(:version => 20130213201518) do
 
   create_table "pages", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(:version => 20130208021802) do
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "reservations", :force => true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "phone"
+    t.text     "address"
+    t.string   "email"
+    t.string   "emergency_contact"
+    t.boolean  "insurance"
+    t.string   "medical_provider"
+    t.string   "parental_consent_signature"
+    t.string   "hold_harmless_signature"
+    t.string   "guardian_signature"
+    t.date     "date_signed"
+    t.date     "camp_start_date"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end
