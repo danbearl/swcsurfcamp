@@ -1,0 +1,58 @@
+%dl
+  = f.label :name
+  = f.text_field :name
+
+%dl
+  =f.label :age
+  =f.number_field :age
+
+%dl
+  =f.label :phone
+  =f.text_field :phone
+
+%dl
+  =f.label :address
+  =f.text_area :address
+
+%dl
+  =f.label :email
+  =f.email_field :email
+
+%dl
+  =f.label :emergency_contact
+  =f.text_area :emergency_contact
+
+%dl
+  =f.label :insurance
+  =f.radio_button :insurance, true
+  Yes
+  %br
+  =f.radio_button :insurance, false
+  No
+
+%dl
+  =f.label :medical_provider
+  =f.text_field :medical_provider
+
+%dl
+  =f.label :parental_consent_signature
+  =f.text_field :parental_consent_signature
+
+%dl
+  =f.label :hold_harmless_signature
+  =f.text_field :hold_harmless_signature
+
+%dl
+  =f.label :guardian_signature
+  =f.text_field :guardian_signature
+
+%dl
+  =f.label :date_signed
+  =f.date_select :date_signed
+
+%dl
+  =f.label :camp_start_date
+  =f.date_select :camp_start_date
+
+%dl
+  =f.submit
