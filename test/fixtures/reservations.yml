@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  age: 1
+  phone: MyString
+  address: MyText
+  email: MyString
+  emergency_contact: MyString
+  insurance: false
+  medical_provider: MyString
+  parental_consent_signature: MyString
+  hold_harmless_signature: MyString
+  guardian_signature: MyString
+  date_signed: 2013-02-13
+  camp_start_date: 2013-02-13
+
+two:
+  name: MyString
+  age: 1
+  phone: MyString
+  address: MyText
+  email: MyString
+  emergency_contact: MyString
+  insurance: false
+  medical_provider: MyString
+  parental_consent_signature: MyString
+  hold_harmless_signature: MyString
+  guardian_signature: MyString
+  date_signed: 2013-02-13
+  camp_start_date: 2013-02-13
