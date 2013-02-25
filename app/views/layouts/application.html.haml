@@ -1,0 +1,26 @@
+!!! 5
+%html
+  %head
+    %title Salt Water Cowgirls Surf Camp
+    = stylesheet_link_tag "application", media: "all"
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Dawning+of+a+New+Day'
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    .main
+      .banner
+      .nav
+        %ul
+          %li Lessons
+          %li Camp Dates
+          %li Gallery
+          %li Location
+
+      = yield
+      .row
+
+      .footer
+        .row
+          %p
+            All content &copy;2013 Lesley Curry. Web site developed by Daniel Bearl.

@@ -1,0 +1,66 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body
+  background-color: #ccc
+
+.main
+  background-image: url('swcsurfcamp-bg.jpg')
+  background-color: white
+  background-repeat: no-repeat
+  margin-left: auto
+  margin-right: auto
+  width: 1170px
+  min-height: 800px
+  border: solid black 1px
+
+  .left-column
+    width: 45%
+    float: left
+
+  .right-column
+    width: 45%
+    float: right
+
+  .row
+    width: 90%
+    margin-left: auto
+    margin-right: auto
+    clear: both
+
+  .banner
+    height: 125px
+
+  .nav
+    margin-top: 100px
+    margin-left: auto
+    margin-right: auto
+
+    ul
+      list-style: none
+      margin-left: auto
+      margin-right: auto
+      display: inline
+
+    li
+      display: inline
+      margin: 0 50px 50px 50px
+      font-family: 'Dawning of a New Day', cursive
+      font-size: 50px
+      text-shadow: 2px 3px 5px #616161
+      filter: dropshadow(color=#616161, offx=2, offy=3)
+
+.footer
+  font-size: 12px
+  
