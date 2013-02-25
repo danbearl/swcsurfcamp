@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
 
   expose(:reservations)
   expose(:reservation)
-  expose(:reservation, model: Reservation)
+  expose(:new_reservation, model: Reservation)
 
   def create
     if reservation.save
