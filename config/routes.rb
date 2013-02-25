@@ -1,5 +1,7 @@
 Swcsurfcamp::Application.routes.draw do
 
+  get "welcome/index"
+
   resources :reservations
 
   root :to => 'welcome#index'
