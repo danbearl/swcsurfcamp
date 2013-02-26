@@ -2,11 +2,34 @@ class ReservationsController < ApplicationController
 
   expose(:reservations)
   expose(:reservation)
-  expose(:new_reservation, model: Reservation)
+  expose(:unique_id) do |id|
+    begin
+      token = Reservation.generate_random_id
+
+    end while Reservation.where(confirmation_id: token) != []
+    id = token
+  end
+
+  expose(:camp_options) do
+    options = []
+    Camp.where("start_date > #{Date.today}").each do |camp|
+      options << [camp.start_date.to_formatted_s(:long), camp.id]
+
+    end
+
+    options
+  end
+
+  expose(:selected_camp) { Camp.find(params['selected_camp'])}
 
   def create
-    if reservation.save
-      redirect_to new_reservation, notice: "Reservation successful."
+    @reservation = Reservation.new(params[:reservation])
+    @reservation.camp_start_date = selected_camp.start_date
+    @reservation.camp_type = selected_camp.camp_type
+    @reservation.camp_price = selected_camp.price
+
+    if @reservation.save
+      redirect_to @reservation, notice: "Reservation successful."
     else
       render 'new'
     end
