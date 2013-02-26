@@ -4,9 +4,12 @@ Swcsurfcamp::Application.routes.draw do
   get "paypal_express/checkout"
   get "paypal_express/review"
   get "paypal_express/purchase"
+  get "reservations/show_admin"
+  get "pictures/gallery"
   get "log_in" => "sessions#new", as: "log_in"
   get "log_out" => "sessions#destroy", as: "log_out"
 
+  resources :pictures
   resources :reservations
   resources :camps
   resources :pages, only: [:new, :create]
