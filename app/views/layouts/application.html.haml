@@ -16,11 +16,23 @@
           %li Camp Dates
           %li Gallery
           %li Location
+      .notice
+        -flash.each do |name, msg|
+          -if msg.is_a?(String)
+            .row
+              %div{class: "alert alert-#{name == :notice ? "success" : "error"}"}
+                =msg
 
       = yield
       .row
 
       .footer
+        .row.text-centered
+          - if current_user
+            =link_to 'Log Out', '/log_out'
+          -else
+            =link_to "Admin Log In", '/log_in'
+
         .row
           %p
             All content &copy;2013 Lesley Curry. Web site developed by Daniel Bearl.

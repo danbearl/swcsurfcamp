@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225195704) do
+ActiveRecord::Schema.define(:version => 20130226124755) do
 
   create_table "camps", :force => true do |t|
     t.string   "camp_type"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(:version => 20130225195704) do
     t.string   "confirmation_id"
     t.string   "camp_type"
     t.float    "camp_price"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "salt"
+    t.string   "crypted_password"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

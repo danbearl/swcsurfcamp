@@ -1,19 +1,16 @@
 Swcsurfcamp::Application.routes.draw do
 
-  get "camps/new"
-
-  get "camps/index"
-
-  get "camps/show"
-
   get "welcome/index"
   get "paypal_express/checkout"
   get "paypal_express/review"
   get "paypal_express/purchase"
+  get "log_in" => "sessions#new", as: "log_in"
+  get "log_out" => "sessions#destroy", as: "log_out"
 
   resources :reservations
   resources :camps
   resources :pages, only: [:new, :create]
+  resources :sessions
 
   root :to => 'welcome#index'
 
