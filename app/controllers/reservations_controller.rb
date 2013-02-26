@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_filter :require_user, except: [:new, :show]
+
 
   expose(:reservations)
   expose(:reservation)
@@ -37,7 +39,7 @@ class ReservationsController < ApplicationController
 
   def update
     if reservation.save
-      redirect_to reservation, "Reservation updated."
+      redirect_to reservations_path, notice: "Reservation updated.", reservation_id: reservation.id
     else
       render 'edit'
     end
@@ -45,6 +47,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     reservation.destroy
-    redirect_to :root, message: "Reservation was deleted."
+    redirect_to reservations_path, message: "Reservation was deleted."
   end
+
 end

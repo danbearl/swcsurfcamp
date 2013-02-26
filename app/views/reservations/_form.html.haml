@@ -12,7 +12,7 @@
 
 %dl
   =f.label :address
-  =f.text_area :address
+  =f.text_area :address, rows: 4
 
 %dl
   =f.label :email
@@ -20,7 +20,7 @@
 
 %dl
   =f.label :emergency_contact
-  =f.text_area :emergency_contact
+  =f.text_area :emergency_contact, rows: 4
 
 %dl
   =f.label :insurance
@@ -34,25 +34,4 @@
   =f.label :medical_provider
   =f.text_field :medical_provider
 
-%dl
-  =f.label :parental_consent_signature
-  =f.text_field :parental_consent_signature
 
-%dl
-  =f.label :hold_harmless_signature
-  =f.text_field :hold_harmless_signature
-
-%dl
-  =f.label :guardian_signature
-  =f.text_field :guardian_signature
-
-%dl
-  =f.label :date_signed
-  =f.date_select :date_signed
-
-%dl
-  =label_tag :selected_camp
-  =select_tag(:selected_camp, options_for_select(camp_options))
-
-%dl
-  =f.submit

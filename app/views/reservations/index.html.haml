@@ -1,2 +1,16 @@
-%h1 Reservations#index
-%p Find me in app/views/reservations/index.html.haml
+.row
+  %table
+    %tr
+      %th Name
+      %th Start Date
+      %th Paid
+      %th Actions
+    - reservations.each do |reservation|
+      %tr
+        %td= reservation.name
+        %td= reservation.camp_start_date
+        %td= reservation.paid
+        %td
+          = link_to "View", action: 'show_admin', reservation_id: reservation.id
+          |
+          = link_to "Delete", reservation, method: :delete, confirm: 'Are you sure?'

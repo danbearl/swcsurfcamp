@@ -9,6 +9,30 @@
 
     = f.hidden_field :confirmation_id, value: unique_id
     = f.hidden_field :paid, value: false
+
+    %dl
+      =label_tag :selected_camp
+      =select_tag(:selected_camp, options_for_select(camp_options))
+
     =render partial: "form", locals: {f: f}
+
+    %dl
+      =f.label :parental_consent_signature
+      =f.text_field :parental_consent_signature
+
+    %dl
+      =f.label :hold_harmless_signature
+      =f.text_field :hold_harmless_signature
+
+    %dl
+      =f.label :guardian_signature
+      =f.text_field :guardian_signature
+
+    %dl
+      =f.label :date_signed
+      =f.date_select :date_signed
+
+    %dl
+      =f.submit
 
   =link_to 'Cancel', root_path

@@ -1,2 +1,22 @@
-%h1 Reservations#edit
-%p Find me in app/views/reservations/edit.html.haml
+.row
+  %h3 Editing Reservation
+
+  =form_for reservation, builder: Formal::Builder  do |f|
+    -if reservation.errors.any?
+      .form-errors
+        ="#{pluralize(reservation.errors.count, "error")} prohibited this reservation from being saved:"
+        %ul
+          -reservation.errors.full_messages.each do |msg|
+            %li=msg
+
+    %dl
+      =f.label :paid
+      =f.check_box :paid
+
+    =render partial: "form", locals: {f: f}
+
+    %dl
+      =f.submit
+
+  =link_to 'Cancel', reservations_path
+
