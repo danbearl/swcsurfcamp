@@ -16,6 +16,7 @@ body
   background-color: #ccc
 
 .main
+
   background-image: url('swcsurfcamp-bg.jpg')
   background-color: white
   background-repeat: no-repeat
@@ -25,12 +26,24 @@ body
   min-height: 800px
   border: solid black 1px
 
+  a
+    text-decoration: none
+    color: #666
+    font-weight: bold
+
+    &:visited
+      color: #aaa
+
+    &:hover
+      color: black
+      text-decoration: underline
+
   .left-column
-    width: 45%
+    width: 49%
     float: left
 
   .right-column
-    width: 45%
+    width: 49%
     float: right
 
   .row
@@ -46,6 +59,8 @@ body
     margin-top: 100px
     margin-left: auto
     margin-right: auto
+    margin-bottom: 15px
+
 
     ul
       list-style: none
@@ -60,6 +75,23 @@ body
       font-size: 50px
       text-shadow: 2px 3px 5px #616161
       filter: dropshadow(color=#616161, offx=2, offy=3)
+
+      a
+        color: black
+        font-weight: normal
+        text-decoration: none
+
+        &:visited
+          color: black
+
+        &:hover
+          font-style: overline
+          text-shadow: 2px 3px 5px #999
+
+  .admin-nav
+    margin-bottom: 15px
+    li
+      font-size: 24px
 
 .form-inline
   .control-group
@@ -81,4 +113,15 @@ body
 .alert-success
   background-color: #7AFAB8
   border: 2px solid #00DE6B
+
+.text-centered
+  text-align: center
+
+.picture
+  width: 50
+  height: 50
+  float: left
   
+.centered
+  margin-left:auto
+  margin-right:auto
