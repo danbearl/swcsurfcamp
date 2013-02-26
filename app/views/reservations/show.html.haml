@@ -1,2 +1,30 @@
-%h1 Reservations#show
-%p Find me in app/views/reservations/show.html.haml
+.row
+  -flash.each do |name, msg|
+    -if msg.is_a?(String)
+      = name
+      = msg
+
+.row
+  %h3= "Reservation for #{reservation.name}"
+  
+  %p
+    %em Camp Start Date:
+    = reservation.camp_start_date.to_formatted_s(:long)
+  
+  %p
+    %em Confirmation ID:
+    = reservation.confirmation_id
+
+- if !reservation.paid
+  .row
+    %p Your reservation is still pending payment. Please make pay in full by the Wednesday prior to the camp start date to maintain your reservation.
+
+    %h4 Payment Options
+
+    %p Click here to pay now via PayPal
+    = link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), controller: 'paypal_express', action: 'checkout', reservation_id: reservation.id
+
+
+- else
+  .row
+    %p Your reservation has been paid in full. Thank you!
