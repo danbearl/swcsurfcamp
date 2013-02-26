@@ -1,0 +1,12 @@
+-if current_user
+  .row
+    =link_to "Upload and manage images", pictures_path
+
+.row
+  .left-column
+    - pictures.each do |picture|
+      .picture
+        =image_tag picture.image_url(:thumb), class: 'image-thumb', :'data-url' => picture.image_url
+
+  .right-column
+    #image_target

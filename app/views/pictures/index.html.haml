@@ -1,0 +1,18 @@
+.row
+  %h3 Pictures
+
+  %p
+    =link_to "Upload Picture", new_picture_path
+
+  %table.table.table-striped
+    %tr
+      %th Thumbnail
+      %th Actions
+
+    - pictures.each do |picture|
+      %tr
+        %td= image_tag picture.image_url(:thumb)
+        %td
+          = link_to 'Edit', edit_picture_path(picture)
+          |
+          = link_to 'Delete', picture, method: :delete, confirm: "Are you sure?"
