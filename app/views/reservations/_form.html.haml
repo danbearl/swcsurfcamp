@@ -51,8 +51,8 @@
   =f.date_select :date_signed
 
 %dl
-  =f.label :camp_start_date
-  =f.date_select :camp_start_date
+  =label_tag :selected_camp
+  =select_tag(:selected_camp, options_for_select(camp_options))
 
 %dl
   =f.submit

@@ -1,11 +1,14 @@
-=form_for reservation, builder: Formal::Builder  do |f|
-  -if reservation.errors.any?
-    .form-errors
-      ="#{pluralize(reservation.errors.count, "error")} prohibited this reservation from being saved:"
-      %ul
-        -reservation.errors.full_messages.each do |msg|
-          %li=msg
+.row
+  =form_for reservation, builder: Formal::Builder  do |f|
+    -if reservation.errors.any?
+      .form-errors
+        ="#{pluralize(reservation.errors.count, "error")} prohibited this reservation from being saved:"
+        %ul
+          -reservation.errors.full_messages.each do |msg|
+            %li=msg
 
-  =render partial: "form", locals: {f: f}
+    = f.hidden_field :confirmation_id, value: unique_id
+    = f.hidden_field :paid, value: false
+    =render partial: "form", locals: {f: f}
 
-=link_to 'Cancel', root_path
+  =link_to 'Cancel', root_path
