@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'activemerchant'
 gem 'authem'
 gem 'aws-s3'
 gem 'bcrypt-ruby', :require => 'bcrypt'
@@ -7,6 +8,7 @@ gem 'buildybuild'
 gem 'carrierwave'
 gem 'decent_exposure'
 gem 'dynamic_form'
+gem 'figaro'
 gem 'fog'
 gem 'formal'
 gem 'haml-rails'
@@ -15,7 +17,6 @@ gem 'pg'
 gem 'rails', '3.2.11'
 gem 'rdiscount'
 gem 'rmagick'
-gem 'will_paginate', '~> 3.0.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
