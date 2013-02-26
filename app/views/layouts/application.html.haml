@@ -12,27 +12,31 @@
       .banner
       .nav
         %ul
-          %li Lessons
-          %li Camp Dates
-          %li Gallery
-          %li Location
-      .notice
-        -flash.each do |name, msg|
-          -if msg.is_a?(String)
-            .row
-              %div{class: "alert alert-#{name == :notice ? "success" : "error"}"}
-                =msg
+          %li= link_to "Lessons", '/lessons'
+          %li= link_to "Camp Dates", camps_path
+          %li= link_to "Gallery", '/pictures/gallery'
+          %li= link_to "Location", '/location'
+          
+      -flash.each do |name, msg|
+        -if msg.is_a?(String)
+          .row
+            %div{class: "alert alert-#{name == :notice ? "success" : "error"}"}
+              =msg
 
       = yield
       .row
 
       .footer
         .row.text-centered
+          = link_to "Home", root_path
+          |
           - if current_user
             =link_to 'Log Out', '/log_out'
+            |
+            =link_to "View/Manage Reservations", reservations_path
           -else
             =link_to "Admin Log In", '/log_in'
 
-        .row
+        .row.text-centered
           %p
             All content &copy;2013 Lesley Curry. Web site developed by Daniel Bearl.
