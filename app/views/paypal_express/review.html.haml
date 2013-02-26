@@ -1,0 +1,12 @@
+.row
+  %h3 Please confirm your order:
+
+  %h4= "Total: #{number_to_currency @order_info[:total]}"
+  %h4 Your Email:
+  = @order_info[:email]
+  %h4 Your Paypal account holder name:
+  = @order_info[:name]
+  %br
+
+  = link_to 'Complete Purchase', paypal_express_purchase_path(token: @order_info[:gateway_details][:token], payer_id: @order_info[:gateway_details][:payer_id], reservation_id: reservation.id)
+

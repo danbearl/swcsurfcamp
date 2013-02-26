@@ -1,0 +1,21 @@
+%dt
+  =f.label :camp_type
+  %dd
+    =f.select(:camp_type, options_for_select(options))
+
+%dt
+  =f.label :price
+  %dd
+    =f.text_field :price
+
+%dt
+  =f.label :start_date
+  %dd
+    =f.date_select :start_date
+
+%dt
+  =f.label :end_date
+  %dd
+    = f.date_select :end_date
+
+=f.submit "Create Camp"
