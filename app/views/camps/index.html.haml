@@ -1,2 +1,31 @@
-%h1 Camps#index
-%p Find me in app/views/camps/index.html.haml
+.row
+  %h4 Upcoming Camp Dates:
+
+  - if current_user
+    =link_to "New Camp", new_camp_path
+
+  %table.table.table-striped
+    %tr
+      %th Camp Type
+      %th Start Date
+      %th End Date
+      %th Cost
+      - if current_user
+        %th Actions
+
+    - camps.each do |camp|
+      %tr
+        %td= camp.start_date.to_formatted_s(:short)
+        %td= camp.start_date.to_formatted_s(:short)
+        %td= camp.camp_type.capitalize
+        %td= number_to_currency(camp.price)
+        - if current_user
+          %td
+            = link_to "Edit", edit_camp_path(camp)
+            |
+            = link_to "Delete", camp, method: :delete, confirm: "Are you sure?"
+      
+.row
+  %p
+    = link_to "Click Here", new_reservation_path
+    to make a reservation today.

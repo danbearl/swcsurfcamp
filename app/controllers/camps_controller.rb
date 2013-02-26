@@ -14,9 +14,17 @@ class CampsController < ApplicationController
     end
   end
 
-  def index
+  def update
+    if camp.save
+      redirect_to camps_path, notice: "Camp updated."
+    else
+      render 'edit'
+    end
   end
 
-  def show
+  def destroy
+    camp.destroy
+    redirect_to camps_path, notice: "Camp deleted."
   end
+
 end
