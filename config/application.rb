@@ -63,5 +63,6 @@ module Swcsurfcamp
     PaypalLogin.login = ENV['PAYPAL_LOGIN']
     PaypalLogin.password = ENV['PAYPAL_PASSWORD']
     PaypalLogin.signature = ENV['PAYPAL_SIGNATURE']
+    
   end
 end
