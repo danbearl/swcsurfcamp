@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130213201518) do
+ActiveRecord::Schema.define(:version => 20130225195704) do
+
+  create_table "camps", :force => true do |t|
+    t.string   "camp_type"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.float    "price"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "pages", :force => true do |t|
     t.string   "name"
@@ -37,6 +46,10 @@ ActiveRecord::Schema.define(:version => 20130213201518) do
     t.date     "camp_start_date"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+    t.boolean  "paid"
+    t.string   "confirmation_id"
+    t.string   "camp_type"
+    t.float    "camp_price"
   end
 
 end
