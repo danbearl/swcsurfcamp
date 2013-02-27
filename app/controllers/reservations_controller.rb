@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_filter :require_user, except: [:new, :show]
+  before_filter :require_user, except: [:new, :create, :show]
 
 
   expose(:reservations)

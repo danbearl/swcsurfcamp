@@ -2,7 +2,7 @@ class Reservation < ActiveRecord::Base
 
   attr_accessible :address, :age, :camp_start_date, :date_signed, :email, :emergency_contact, :guardian_signature, :hold_harmless_signature, :insurance, :medical_provider, :name, :parental_consent_signature, :phone, :confirmation_id, :paid, :camp_type, :camp_price
 
-  validates_presence_of :name, :age, :phone, :insurance, :parental_consent_signature, :hold_harmless_signature, :guardian_signature, :date_signed, :camp_start_date
+  validates_presence_of :name, :age, :phone, :parental_consent_signature, :hold_harmless_signature, :guardian_signature, :date_signed
 
   def payment_confirmed
     write_attribute :paid, true
