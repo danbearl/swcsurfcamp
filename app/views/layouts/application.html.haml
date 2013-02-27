@@ -27,6 +27,11 @@
       .row
 
       .footer
+        .row
+          =form_tag controller: 'reservations', action: 'search' do
+            =label_tag :query, 'Look Up Reservation'
+            =text_field_tag :query
+            =submit_tag 'Search'
         .row.text-centered
           = link_to "Home", root_path
           |

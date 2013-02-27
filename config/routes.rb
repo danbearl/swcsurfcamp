@@ -5,6 +5,7 @@ Swcsurfcamp::Application.routes.draw do
   get "paypal_express/review"
   get "paypal_express/purchase"
   get "reservations/show_admin"
+  post "reservations/search"
   get "pictures/gallery"
   get "log_in" => "sessions#new", as: "log_in"
   get "log_out" => "sessions#destroy", as: "log_out"

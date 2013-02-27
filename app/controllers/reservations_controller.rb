@@ -12,6 +12,8 @@ class ReservationsController < ApplicationController
     id = token
   end
 
+  expose(:search_results) { Reservation.where(confirmation_id: params['query']) }
+
   expose(:camp_options) do
     options = []
     Camp.where("start_date > '#{Date.today.to_formatted_s(:db)}'").each do |camp|
@@ -48,6 +50,16 @@ class ReservationsController < ApplicationController
   def destroy
     reservation.destroy
     redirect_to reservations_path, message: "Reservation was deleted."
+
+  end
+
+  def search
+    if search_results.empty?
+      redirect_to root_path, error: "No matching records were found."
+    else
+      redirect_to reservation_path(search_results[0].id)
+    end
+
   end
 
 end
