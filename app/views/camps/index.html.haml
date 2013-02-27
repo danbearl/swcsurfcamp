@@ -15,9 +15,9 @@
 
     - camps.each do |camp|
       %tr
-        %td= camp.start_date.to_formatted_s(:short)
-        %td= camp.start_date.to_formatted_s(:short)
         %td= camp.camp_type.capitalize
+        %td= camp.start_date.to_formatted_s(:long)
+        %td= camp.start_date.to_formatted_s(:long)
         %td= number_to_currency(camp.price)
         - if current_user
           %td
