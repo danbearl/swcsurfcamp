@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
 
   expose(:camp_options) do
     options = []
-    Camp.where("start_date > #{Date.today}").each do |camp|
+    Camp.where("start_date > #{Date.today.to_formatted_s(:db)}").each do |camp|
       options << [camp.start_date.to_formatted_s(:long), camp.id]
 
     end
