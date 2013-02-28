@@ -1,13 +1,15 @@
+%p Fields with * are required
+
 %dl
-  = f.label :name
+  = f.label :name, 'Name *'
   = f.text_field :name
 
 %dl
-  =f.label :age
+  =f.label :age, 'Age *'
   =f.number_field :age
 
 %dl
-  =f.label :phone
+  =f.label :phone, 'Phone Number *'
   =f.text_field :phone
 
 %dl
@@ -16,14 +18,16 @@
 
 %dl
   =f.label :email
+  %span{ class: 'form-explanation' } student/parent
   =f.email_field :email
 
 %dl
   =f.label :emergency_contact
+  %span{ class: 'form-explanation' } Name of person and phone number
   =f.text_area :emergency_contact, rows: 4
 
 %dl
-  =f.label :insurance
+  =f.label :insurance, "Insurance *"
   =f.radio_button :insurance, true
   Yes
   %br
@@ -31,7 +35,8 @@
   No
 
 %dl
-  =f.label :medical_provider
+  =f.label :medical_provider, "Who is your medical Insurance Provider?"
+  %span{ class: 'form-explanation' } skip if you do not have medical insurance
   =f.text_field :medical_provider
 
 

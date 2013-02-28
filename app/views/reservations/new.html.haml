@@ -17,19 +17,24 @@
     =render partial: "form", locals: {f: f}
 
     %dl
-      =f.label :parental_consent_signature
+      =f.label :parental_consent_signature, "Signature *"
+      %span{ class: 'form-explanation'}
+        PARENT/GUARDIAN READ AND SIGN --- I am hereby consenting to participate in surfing activities that also involve swimming, photographs, video, and travel to and from the beach. I further authorize the camp director and/or her employees/agents to seek any emergency medical care that may become necessary for me in the course of such athletic activities or travel and understand that the cost of such medical care will be at my sole expense. I hereby knowingly and unconditionally release the camp director and/or her employees/agents or anyone acting on her behalf from any and all responsibility or liability for any injury or damages, whatsoever, incurred, suffered, or caused by the above-named. I understand surfing may cause fractures, paralysis, dismemberment, or death. I have read and fully understand the above.
       =f.text_field :parental_consent_signature
 
     %dl
-      =f.label :hold_harmless_signature
+      =f.label :hold_harmless_signature, "Signature *"
+      %span{ class: 'form-explanation' }
+        HOLD HARMLESS AGREEMENT: Upon acceptance of this entry form, the undersigned participant and/or guardian hereby releases the City of Jacksonville Beach, its employees of all liability, injury, or damages whatsoever arising from participation of this event. The participant and/or guardian understands that there are certain risks involved with the sport of surfing and the participant assumes all risks to surfing and ocean-related sports.
       =f.text_field :hold_harmless_signature
 
     %dl
-      =f.label :guardian_signature
+      =f.label :guardian_signature, "Signature *"
+      %span{ class: 'form-explanation' } Required signature of parent or guardian of any participant under 18 years of age.
       =f.text_field :guardian_signature
 
     %dl
-      =f.label :date_signed
+      =f.label :date_signed, "Date *"
       =f.date_select :date_signed
 
     %dl
