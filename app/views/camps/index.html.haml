@@ -10,6 +10,7 @@
       %th Start Date
       %th End Date
       %th Cost
+      %th Location
       - if current_user
         %th Actions
 
@@ -19,6 +20,7 @@
         %td= camp.start_date.to_formatted_s(:long)
         %td= camp.end_date.to_formatted_s(:long)
         %td= number_to_currency(camp.price)
+        %td= camp.location
         - if current_user
           %td
             = link_to "Edit", edit_camp_path(camp)
