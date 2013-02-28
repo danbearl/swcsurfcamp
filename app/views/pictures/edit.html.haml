@@ -1,0 +1,8 @@
+.row
+  %h3= "Editing Photo ##{picture.id}"
+
+  = form_for picture, html: {multipart: true} do |f|
+    =render partial: 'form', locals: {f:f}
+
+.row
+  =link_to "Back", pictures_path
