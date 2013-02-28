@@ -1,0 +1,45 @@
+%h3= "Reservation for #{@reservation.name}"
+
+%p
+  %strong Camp Start Date:
+  = @reservation.camp_start_date.to_formatted_s(:long)
+
+%p
+  %strong Age:
+  = @reservation.age
+
+%p
+  %strong Address:
+  %address= @reservation.address
+
+%p
+  %strong Phone:
+  = @reservation.phone
+
+%p
+  %strong Email:
+  = @reservation.email
+
+%p
+  %strong Emergency Contact:
+  = @reservation.emergency_contact
+
+%p
+  %strong Insurance
+  = @reservation.insurance
+
+%p
+  %strong Medical Provider
+  = @reservation.medical_provider
+
+%p
+  %strong Parental Consent:
+  = @reservation.parental_consent_signature
+
+%p
+  %strong Signature:
+  = @reservation.guardian_signature
+
+%p
+  %strong Hold Harmless Signature:
+  = @reservation.hold_harmless_signature
