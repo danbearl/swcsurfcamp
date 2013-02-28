@@ -31,12 +31,17 @@ class ReservationsController < ApplicationController
     @reservation.camp_start_date = selected_camp.start_date
     @reservation.camp_type = selected_camp.camp_type
     @reservation.camp_price = selected_camp.price
+    @reservation.camp_location = selected_camp.location
 
     if @reservation.save
+      SiteMailer.reservation_confirmation(@reservation).deliver
+      SiteMailer.reservation_notification(@reservation).deliver
+
       redirect_to @reservation, notice: "Reservation successful."
     else
       render 'new'
     end
+
   end
 
   def update
@@ -45,6 +50,7 @@ class ReservationsController < ApplicationController
     else
       render 'edit'
     end
+
   end
 
   def destroy
