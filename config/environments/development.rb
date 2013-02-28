@@ -39,9 +39,9 @@ Swcsurfcamp::Application.configure do
     ActiveMerchant::Billing::Base.mode = :test
   end
 
-  PaypalLogin.login = ENV['PAYPAL_LOGIN']
-  PaypalLogin.password = ENV['PAYPAL_PASSWORD']
-  PaypalLogin.signature = ENV['PAYPAL_SIGNATURE']
+  PaypalLogin.login = ENV['PAYPAL_TEST_LOGIN']
+  PaypalLogin.password = ENV['PAYPAL_TEST_PASSWORD']
+  PaypalLogin.signature = ENV['PAYPAL_TEST_SIGNATURE']
 
 
 end
