@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
 
   before_filter :require_user, except: [:gallery]
 
-  expose(:pictures)
+  expose(:pictures) { Picture.paginate(page: params['page'], per_page: 20) }
   expose(:picture)
 
   def create

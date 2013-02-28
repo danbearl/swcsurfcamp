@@ -18,6 +18,7 @@ gem 'pg'
 gem 'rails', '3.2.11'
 gem 'rdiscount'
 gem 'rmagick'
+gem 'will_paginate', '~>3.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
