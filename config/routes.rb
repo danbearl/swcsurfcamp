@@ -9,6 +9,7 @@ Swcsurfcamp::Application.routes.draw do
   get "pictures/gallery"
   get "log_in" => "sessions#new", as: "log_in"
   get "log_out" => "sessions#destroy", as: "log_out"
+  match 'heartbeat', to: proc { [200, {} ''.chars] }
 
   resources :pictures
   resources :reservations
