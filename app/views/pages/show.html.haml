@@ -1,5 +1,6 @@
 .row
-  = link_to "edit", edit_slug_path(page.slug)
+  -if current_user
+    = link_to "edit", edit_slug_path(page.slug)
 
 %article
   :markdown
