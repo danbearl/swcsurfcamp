@@ -136,6 +136,7 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.5)
+    newrelic_rpm (3.5.8.70)
     nokogiri (1.5.6)
     nyan-cat-formatter (0.4.0)
     pg (0.14.1)
@@ -239,6 +240,7 @@ DEPENDENCIES
   formal
   haml-rails
   jquery-rails
+  newrelic_rpm
   nyan-cat-formatter
   pg
   pry
