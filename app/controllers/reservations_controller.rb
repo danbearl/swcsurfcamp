@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_filter :require_user, except: [:new, :create, :show]
+  before_filter :require_user, except: [:new, :create, :show, :search]
 
 
   expose(:reservations)
@@ -63,7 +63,7 @@ class ReservationsController < ApplicationController
     if search_results.empty?
       redirect_to root_path, error: "No matching records were found."
     else
-      redirect_to reservation_path(search_results[0].id)
+      redirect_to search_results[0]
     end
 
   end
