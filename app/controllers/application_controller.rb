@@ -3,3 +3,4 @@ class ApplicationController < ActionController::Base
 
   include Authem::ControllerSupport
 end
+
