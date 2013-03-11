@@ -9,4 +9,3 @@
   %br
 
   = link_to 'Complete Purchase', paypal_express_purchase_path(token: @order_info[:gateway_details][:token], payer_id: @order_info[:gateway_details][:payer_id], reservation_id: reservation.id)
-
