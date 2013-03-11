@@ -5,7 +5,7 @@ class PaypalExpressController < ApplicationController
   expose(:reservation) { Reservation.find(params['reservation_id']) }
 
   def checkout
-    new_url = PaypalCheckout.new(reservation, request.remote_ip).url
+    new_url = PaypalCheckout.new(reservation, request.remote_ip, request.host).url
     redirect_to new_url
   end
 
@@ -41,7 +41,7 @@ class PaypalExpressController < ApplicationController
       reservation.payment_confirmed
       notice = "Thank you! Your reservation is now complete!"
     else
-      notice = "Woops. Something went wrong while we were trying to complete the purchase with Paypal. Btw, here's what Paypal said: #{purchase.message}"
+      notice = "Woops. Something went wrong while we were trying to complete the purchase with Paypal. Here's what Paypal said: #{purchase.message}"
     end
 
     redirect_to root_path, notice: notice, reservation_id: reservation.id
