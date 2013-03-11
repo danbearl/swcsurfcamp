@@ -5,7 +5,7 @@ class PaypalExpressController < ApplicationController
   expose(:reservation) { Reservation.find(params['reservation_id']) }
 
   def checkout
-    new_url = PaypalCheckout.new(reservation, request.remote_ip, request.host).url
+    new_url = PaypalCheckout.new(reservation, request.remote_ip, request.env['HTTP_HOST']).url
     redirect_to new_url
   end
 
