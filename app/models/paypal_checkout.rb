@@ -16,6 +16,7 @@ class PaypalCheckout < ActionView::Base
 
   def url
     response = @gateway.setup_purchase(reservation_price, purchase_params)
+    Rails.logger.info response.inspect
     @gateway.redirect_url_for(response.token)
   end
 
