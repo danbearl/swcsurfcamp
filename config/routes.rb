@@ -11,7 +11,9 @@ Swcsurfcamp::Application.routes.draw do
   get "log_in" => "sessions#new", as: "log_in"
   get "log_out" => "sessions#destroy", as: "log_out"
   match 'heartbeat', to: proc { [200, {}, ''.chars] }
-  match 'index.html' => 'welcome#index'
+  match ':name.html' => redirect('/%{name}')
+  match ':name.htm' => redirect('/%{name}')
+  match 'index' => 'welcome#index'
 
   resources :pictures
   resources :reservations
