@@ -5,9 +5,12 @@
 
 %p= "The camp runs is from 8:30 a.m. until 12:30 p.m. Monday through Friday, and meets at #{@reservation.camp_location}."
 
+
+%p= "Your remaining balance on your reservation is #{number_to_currency(@reservation.balance)}."
+
 %p Please make sure to pay for the camp in full no later than the Wednesday prior to the camp start date to keep your reservation. 
 
-%p= "If you have not already paid, you can access your reservation at www.swcsurfcamp.com and enter you reservation code (#{@reservation.confirmation_id}) in the search field at the bottom of the page."
+%p= "You can view your reservation and make payments by visiting  www.swcsurfcamp.com and entering you reservation code (#{@reservation.confirmation_id}) in the search field at the bottom of the page."
 
 %p If you have any questions, please contact us at 904-238-4716 or saltwatercowgirls@gmail.com.
 

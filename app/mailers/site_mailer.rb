@@ -13,4 +13,16 @@ class SiteMailer < ActionMailer::Base
 
     mail(subject: "New Reservation for Saltwater Cowgirls Surfcamp")
   end
+
+  def reservation_payment_confirmation(reservation)
+    @reservation = reservation
+
+    mail(subject: "Saltwater Cowgirls Surfcamp Payment Confirmation")
+  end
+
+  def reservation_payment_notification(reservation)
+    @reservation = reservation
+
+    mail(subject: "New Payment for Saltwater Cowgirls Surfcamp")
+  end
 end

@@ -3,6 +3,7 @@ Swcsurfcamp::Application.routes.draw do
   get "welcome/index"
   get "paypal_express/checkout", as: :checkout
   get "paypal_express/review"
+  get "paypal_express/cancel"
   get "paypal_express/:reservation_id/review", as: :review
   get "paypal_express/purchase"
   get "reservations/show_admin"

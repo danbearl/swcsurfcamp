@@ -38,6 +38,13 @@
       =f.date_select :date_signed
 
     %dl
+      = label_tag :payment
+      %br
+      %span{ class: 'form-explanation' } A minimum $50 deposit is required to make your reservation. You may pay only the deposit now and the remaining balance at a later date, or the full amount now. Please note that full payment is due by the Wednesday prior to your camp's start date in order to maintain your reservation.
+      %br
+      = select_tag(:payment, options_for_select([['$50 Deposit Only', 'deposit'],['Full Camp Amount','full']]))
+
+    %dl
       =f.submit
 
   =link_to 'Cancel', root_path

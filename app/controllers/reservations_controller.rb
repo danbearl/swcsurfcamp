@@ -32,12 +32,16 @@ class ReservationsController < ApplicationController
     @reservation.camp_type = selected_camp.camp_type
     @reservation.camp_price = selected_camp.price
     @reservation.camp_location = selected_camp.location
+    @reservation.balance = selected_camp.price
+    
+    if params[:payment] == 'deposit'
+      @payment_amount = 50
+    else
+      @payment_amount = @reservation.camp_price
+    end
 
     if @reservation.save
-      SiteMailer.reservation_confirmation(@reservation).deliver
-      SiteMailer.reservation_notification(@reservation).deliver
-
-      redirect_to @reservation, notice: "Reservation successful."
+      redirect_to url_for(controller: "paypal_express", action:"checkout", only_path: false, reservation_id: @reservation.id, payment_amount: @payment_amount, payment_type: "initial")
     else
       render 'new'
     end
