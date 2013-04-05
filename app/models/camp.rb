@@ -4,4 +4,6 @@ class Camp < ActiveRecord::Base
 
   default_scope order('start_date')
 
+  has_many :reservations
+
 end

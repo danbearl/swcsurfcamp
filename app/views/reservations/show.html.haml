@@ -3,7 +3,11 @@
   
   %p
     %em Camp Start Date:
-    = reservation.camp_start_date.to_formatted_s(:long)
+    = reservation.camp.start_date.to_formatted_s(:long)
+  
+  %p
+    %em Camp Location:
+    = reservation.camp.location
   
   %p
     %em Confirmation ID:

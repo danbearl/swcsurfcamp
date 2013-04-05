@@ -14,11 +14,24 @@ class ReservationsController < ApplicationController
 
   expose(:search_results) { Reservation.where(confirmation_id: params['query']) }
 
+  expose(:open_camps) do
+    available = []
+    Camp.all.each do |camp|
+      if camp.reservations.size < 30
+        available << camp
+      end
+    end
+
+    available
+    require 'pry'; binding.pry
+  end
+
   expose(:camp_options) do
     options = []
-    Camp.where("start_date > '#{Date.today.to_formatted_s(:db)}'").each do |camp|
-      options << [camp.start_date.to_formatted_s(:long), camp.id]
-
+    open_camps.each do |camp|
+      if camp.start_date > Date.today
+        options << [camp.start_date.to_formatted_s(:long), camp.id]
+      end
     end
 
     options
@@ -28,16 +41,13 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(params[:reservation])
-    @reservation.camp_start_date = selected_camp.start_date
-    @reservation.camp_type = selected_camp.camp_type
-    @reservation.camp_price = selected_camp.price
-    @reservation.camp_location = selected_camp.location
+    @reservation.camp_id = selected_camp.id
     @reservation.balance = selected_camp.price
     
     if params[:payment] == 'deposit'
       @payment_amount = 50
     else
-      @payment_amount = @reservation.camp_price
+      @payment_amount = @reservation.camp.price
     end
 
     if @reservation.save

@@ -1,6 +1,6 @@
 %h3 Thank You For Your Payment
 
-%p= "This is to confirm your payment has been made for #{@reservation.name} for the camp starting on #{@reservation.camp_start_date}."
+%p= "This is to confirm your payment has been made for #{@reservation.name} for the camp starting on #{@reservation.camp.start_date.to_formatted_s(:long)}."
 
 %p= "You can view your reservation by visiting  www.swcsurfcamp.com and entering you reservation code (#{@reservation.confirmation_id}) in the search field at the bottom of the page."
 

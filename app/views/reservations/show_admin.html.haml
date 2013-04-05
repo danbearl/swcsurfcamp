@@ -5,12 +5,16 @@
     =link_to "Edit Reservation", edit_reservation_path(reservation)
 
   %p
-    %strong Paid:
+    %strong Deposit Paid:
     = reservation.paid
+
+  %p
+    %strong Balance:
+    = number_to_currency(reservation.balance)
   
   %p
     %strong Camp Start Date:
-    = reservation.camp_start_date.to_formatted_s(:long)
+    = reservation.camp.start_date.to_formatted_s(:long)
   
   %p
     %strong Age:

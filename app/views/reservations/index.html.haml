@@ -9,7 +9,7 @@
     - reservations.each do |reservation|
       %tr
         %td= reservation.name
-        %td= reservation.camp_start_date
+        %td= reservation.camp.start_date.to_formatted_s(:long)
         %td= reservation.paid
         %td= number_to_currency(reservation.balance)
         %td

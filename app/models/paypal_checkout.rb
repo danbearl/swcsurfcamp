@@ -55,7 +55,7 @@ class PaypalCheckout < ActionView::Base
 
   def get_items
     [{
-      name: "Saltwater Cowgirls Surfcamp #{@reservation.camp_type.capitalize} starting on #{@reservation.camp_start_date.to_formatted_s(:long)}",
+      name: "Saltwater Cowgirls Surfcamp #{@reservation.camp.camp_type.capitalize} starting on #{@reservation.camp.start_date.to_formatted_s(:long)}",
       number: 1,
       quantity: 1,
       amount: payment_price

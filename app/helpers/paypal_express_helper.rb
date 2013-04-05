@@ -30,7 +30,7 @@ module PaypalExpressHelper
   def get_items(reservation, payment_amount)
     [
       {
-        name: "#{reservation.camp_type.capitalize} starting on #{reservation.camp_start_date.to_formatted_s(:long)}",
+        name: "#{reservation.camp.camp_type.capitalize} starting on #{reservation.camp.start_date.to_formatted_s(:long)}",
         number: 1,
         quantity: 1,
         amount: payment_amount.to_f.to_cents

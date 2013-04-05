@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403191113) do
+ActiveRecord::Schema.define(:version => 20130405181448) do
 
   create_table "camps", :force => true do |t|
     t.string   "camp_type"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130403191113) do
     t.float    "camp_price"
     t.string   "camp_location"
     t.float    "balance"
+    t.integer  "camp_id"
   end
 
   create_table "users", :force => true do |t|

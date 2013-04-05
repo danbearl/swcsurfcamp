@@ -49,14 +49,15 @@ class PaypalExpressController < ApplicationController
       reservation.balance -= params[:payment_amount].to_f
 
       reservation.save
-      notice = "Thank you! Your reservation is now complete!"
 
       if params[:payment_type] == "initial"
         SiteMailer.reservation_confirmation(reservation).deliver
         SiteMailer.reservation_notification(reservation).deliver
+        notice = "Thank you! Reservation successful!"
       else
         SiteMailer.reservation_payment_confirmation(reservation).deliver
         SiteMailer.reservation_payment_notification(reservation).deliver
+        notice = "Thank you! Your reservation is now complete!"
       end
 
     else
