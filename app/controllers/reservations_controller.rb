@@ -23,7 +23,6 @@ class ReservationsController < ApplicationController
     end
 
     available
-    require 'pry'; binding.pry
   end
 
   expose(:camp_options) do
