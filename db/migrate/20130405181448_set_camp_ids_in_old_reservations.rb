@@ -8,14 +8,7 @@ class SetCampIdsInOldReservations < ActiveRecord::Migration
 
   def down
     Reservation.all.each do |reservation|
-      camp = Camp.find(reservation.camp_id).first
-      
-      reservation.update_attributes(
-        camp_start_date: camp.start_date,
-        camp_price: camp.price,
-        camp_location: camp.location,
-        camp_type: camp.camp_type
-      )
+      resrvation.update_attribute(:camp_id, nil)
     end
   end
 end
