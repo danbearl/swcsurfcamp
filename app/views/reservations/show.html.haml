@@ -15,11 +15,21 @@
 
 - if reservation.balance > 0
   .row
-    %p= "You have an unpaid balance of #{number_to_currency(reservation.balance)}. Please make pay in full by the Wednesday prior to the camp start date to maintain your reservation."
+    %p
+      = "You have an unpaid balance of #{number_to_currency(reservation.balance)}."
+      - if !reservation.paid
+        You have not yet placed a deposit on your reservation. A $50 deposit is required to hold your reservation.
+      Full payment is due by the Wednesday prior to the camp start date to maintain your reservation.
 
     %h4 Payment Options
 
-    %p Click here to pay now via PayPal
+    %p
+      %strong Click here to pay now via PayPal
+    - if !reservation.paid
+      %p Pay $50 Deposit Only
+      = link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), controller: 'paypal_express', action: 'checkout', reservation_id: reservation.id, payment_amount: 50, payment_type: "initial"
+
+    %p= "Pay full remaining balance: #{number_to_currency(reservation.balance)}"
     = link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), controller: 'paypal_express', action: 'checkout', reservation_id: reservation.id, payment_amount: reservation.balance, payment_type: "secondary"
 
 - else
