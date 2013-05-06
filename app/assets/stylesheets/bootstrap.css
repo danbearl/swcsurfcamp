@@ -10,6 +10,13 @@
 .clearfix {
   *zoom: 1;
 }
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .clearfix:before,
 .clearfix:after {
   display: table;
