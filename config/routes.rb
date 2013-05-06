@@ -14,7 +14,7 @@ Swcsurfcamp::Application.routes.draw do
   match 'heartbeat', to: proc { [200, {}, ''.chars] }
   match ':name.html' => redirect('/%{name}')
   match ':name.htm' => redirect('/%{name}')
-  match 'index' => 'welcome#index'
+  match '/index' => redirect('/home')
 
   resources :pictures
   resources :reservations
@@ -22,7 +22,7 @@ Swcsurfcamp::Application.routes.draw do
   resources :pages, only: [:new, :create]
   resources :sessions
 
-  root :to => 'welcome#index'
+  root :to => redirect('/home')
 
   #keep these at the bottom of your file. They should be the last routes.
   get "/:slug", to: "pages#show", as: :slug
