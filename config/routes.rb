@@ -1,6 +1,5 @@
 Swcsurfcamp::Application.routes.draw do
 
-  get "welcome/index"
   get "paypal_express/checkout", as: :checkout
   get "paypal_express/review"
   get "paypal_express/cancel"
