@@ -1,7 +1,6 @@
 class ReservationsController < ApplicationController
   before_filter :require_user, except: [:new, :create, :show, :search]
 
-
   expose(:reservations)
   expose(:reservation)
   expose(:unique_id) do |id|
@@ -43,14 +42,17 @@ class ReservationsController < ApplicationController
     @reservation.camp_id = selected_camp.id
     @reservation.balance = selected_camp.price
     
-    if params[:payment] == 'deposit'
-      @payment_amount = 50
-    else
-      @payment_amount = @reservation.camp.price
-    end
+    # if params[:payment] == 'deposit'
+    #   @payment_amount = 50
+    # else
+    #   @payment_amount = @reservation.camp.price
+    # end
 
     if @reservation.save
-      redirect_to url_for(controller: "paypal_express", action:"checkout", only_path: false, reservation_id: @reservation.id, payment_amount: @payment_amount, payment_type: "initial")
+      # redirect_to url_for(controller: "paypal_express", action:"checkout", only_path: false, reservation_id: @reservation.id, payment_amount: @payment_amount, payment_type: "initial")
+      SiteMailer.reservation_confirmation(@reservation).deliver
+      SiteMailer.reservation_notification(@reservation).deliver
+      redirect_to :root, notice: "Reservation successful."
     else
       render 'new'
     end
