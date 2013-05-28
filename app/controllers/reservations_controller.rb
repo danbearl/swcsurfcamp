@@ -38,9 +38,8 @@ class ReservationsController < ApplicationController
   expose(:selected_camp) { Camp.find(params['selected_camp'])}
 
   def create
-    @reservation = Reservation.new(params[:reservation])
-    @reservation.camp_id = selected_camp.id
-    @reservation.balance = selected_camp.price
+    reservation.camp_id = selected_camp.id
+    reservation.balance = selected_camp.price
     
     # if params[:payment] == 'deposit'
     #   @payment_amount = 50
@@ -48,10 +47,9 @@ class ReservationsController < ApplicationController
     #   @payment_amount = @reservation.camp.price
     # end
 
-    if @reservation.save
-      # redirect_to url_for(controller: "paypal_express", action:"checkout", only_path: false, reservation_id: @reservation.id, payment_amount: @payment_amount, payment_type: "initial")
-      SiteMailer.reservation_confirmation(@reservation).deliver
-      SiteMailer.reservation_notification(@reservation).deliver
+    if reservation.save
+      SiteMailer.reservation_confirmation(reservation).deliver
+      SiteMailer.reservation_notification(reservation).deliver
       redirect_to :root, notice: "Reservation successful."
     else
       render 'new'
