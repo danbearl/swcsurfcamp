@@ -48,9 +48,15 @@ class ReservationsController < ApplicationController
     # end
 
     if reservation.save
-      SiteMailer.reservation_confirmation(reservation).deliver
-      SiteMailer.reservation_notification(reservation).deliver
-      redirect_to :root, notice: "Reservation successful."
+
+      begin
+        SiteMailer.reservation_confirmation(reservation).deliver
+        SiteMailer.reservation_notification(reservation).deliver
+        redirect_to :root, notice: "Reservation successful."
+      rescue Net::SMTPAuthenticationError
+        redirect_to :root, notice: "Reservation was successful, but there was an e-mail error."
+      end
+
     else
       render 'new'
     end
