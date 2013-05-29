@@ -52,9 +52,9 @@ class ReservationsController < ApplicationController
       begin
         SiteMailer.reservation_confirmation(reservation).deliver
         SiteMailer.reservation_notification(reservation).deliver
-        redirect_to :root, notice: "Reservation successful."
+        redirect_to slug_path('home'), notice: "Reservation successful."
       rescue
-        redirect_to :root, notice: "Reservation was successful, but there was an e-mail error. Please contact saltwatercowgirls@gmail.com for payment information."
+        redirect_to slug_path('home'), notice: "Reservation was successful, but there was an e-mail error. Please contact saltwatercowgirls@gmail.com for payment information."
       end
 
     else
