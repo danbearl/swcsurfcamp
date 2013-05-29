@@ -53,8 +53,8 @@ class ReservationsController < ApplicationController
         SiteMailer.reservation_confirmation(reservation).deliver
         SiteMailer.reservation_notification(reservation).deliver
         redirect_to :root, notice: "Reservation successful."
-      rescue Net::SMTPAuthenticationError
-        redirect_to :root, notice: "Reservation was successful, but there was an e-mail error."
+      rescue
+        redirect_to :root, notice: "Reservation was successful, but there was an e-mail error. Please contact saltwatercowgirls@gmail.com for payment information."
       end
 
     else
