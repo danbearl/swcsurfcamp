@@ -3,7 +3,7 @@
 %p 
   = "This is to confirm your reservation has been made for #{@reservation.name} for the camp starting on #{@reservation.camp.start_date.to_formatted_s(:long)}."
 
-%p= "The camp runs is from 8:30 a.m. until 12:30 p.m. Monday through Friday, and meets at #{@reservation.camp.location}."
+%p= "The camp runs is from 9:30 a.m. until 12:30 p.m. Monday through Friday, and meets at #{@reservation.camp.location}."
 
 
 %p= "Your remaining balance on your reservation is #{number_to_currency(@reservation.balance)}."
