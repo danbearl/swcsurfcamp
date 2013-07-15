@@ -1,14 +1,13 @@
 %h3 Thank You For Your Reservation
 
-%p 
-  = "This is to confirm your reservation has been made for #{@reservation.name} for the camp starting on #{@reservation.camp.start_date.to_formatted_s(:long)}."
+%p= "This is to confirm your reservation has been made for #{@reservation.name} for the camp starting on #{@reservation.camp.start_date.to_formatted_s(:long)}."
 
 %p= "The camp runs is from 9:30 a.m. until 12:30 p.m. Monday through Friday, and meets at #{@reservation.camp.location}."
 
 
 %p= "Your remaining balance on your reservation is #{number_to_currency(@reservation.balance)}."
 
-%p Please make sure to pay for the camp in full no later than the Wednesday prior to the camp start date to keep your reservation. 
+%p Please make sure to pay for the camp in full no later than the Wednesday prior to the camp start date to keep your reservation. Please mail checks to Saltwater Cowgirls, 835 5th Street North, Jacksonville Beach, FL 32250, or call 904-238-4716 to pay by credit card.
 
 %p= "You can view your reservation and make payments by visiting  www.swcsurfcamp.com and entering you reservation code (#{@reservation.confirmation_id}) in the search field at the bottom of the page."
 
